@@ -1,0 +1,364 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>生后事：接线员</title>
+<script src="./pixi.min.js"></script>
+<script src="./tink.js"></script>
+<script src="./jquery-3.5.1.min.js"></script>
+<script src="./imagesLoader.min.js"></script>
+<script src="./TweenMax.min.js"></script>
+<script src="./jquery.lettering.js"></script>
+<script src="./L2Dwidget.min.js"></script>
+<script src="./video.min.js"></script>
+<script src="./swiper.animate1.0.3.min.js"></script>
+<script src="./howler.min.js"></script>
+<script src="./jquery.tooltip.js"></script>
+<script src="./typed.js"></script>
+<link rel="stylesheet" type="text/css" href="./this.css">
+<script>
+    var index=0;
+    var word;
+    function type(){
+    var typePanel = document.getElementById("aa");
+    typePanel.innerText = word.substring(0,index++);
+    if(index % 3 == 0){
+        typePanel.className = "";
+    }else if(index % 3 == 1){
+        typePanel.className = "saying";
+    }
+}
+window.οnlοad=function(){
+    word=document.getElementById("w").innerHTML;
+    setInterval(type, 200);
+}
+
+</script>
+
+<!-- html页面主体 --> 
+<div id="border"></div>
+<body>
+   <!--<iframe class="vr" src="https://vr.3d66.com/vr/index_detail_544510.asp" frameBorder="0" width="900" scrolling="no" height="900"></iframe> --> 
+    <div id="stage">
+
+        <div class="change">
+            <span   class="change leftchange"></span>
+            <span   class="change rightchange"></span>
+        </div>
+
+        <!-- 加载页面 --> 
+        <div class="loading">
+            <div class="loading back"></div>
+        </div>
+
+        <!-- 首页 --> 
+        <div class="first">
+            <div   class="first qicheng" onclick="go1()"></div>
+            <div   class="first shuoming" onclick="go2()"></div>
+            <div   class="first fankui" onclick="go3()"></div>
+            <div   class="first zhixie" onclick="go4()"></div>
+            <div   class="first back"></div>
+        </div>
+
+       
+
+        <!-- 主页面 --> 
+        <div class="music">
+            <div   class="musicon" onclick="jingyin()"></div>
+            <div   class="musicoff" onclick="kaishengyin()"></div>
+        </div>
+    
+
+        <div class="main">
+            <div   class="main backfirst" onclick="back1()"></div>
+            <div   class="main ask" onclick="tanask1()"></div>
+          
+                <!-- 情报站 -->
+            <div class="main qingbaozhan" onclick=""></div>
+           
+            <div class="main tag1" onclick="tag1on()"></div>
+            <div id="tag-qingbaozhan">
+                <div class="chazi1" onclick="tag1off()"></div>
+                <div class="tag-content1"></div>
+            </div>
+           
+        
+           
+
+                <!-- 旧闻录 -->
+            <div class="main tag2" onclick=""></div>
+            <div class="main jiuwenlu" onclick="tanjiuwenlu()"></div>
+
+
+                <!-- iphonix -->
+            <div class="main tag3" onclick=""></div>
+            <div class="main iphonix" onclick="taniphonix()"></div>
+            <div id="shouji">
+                <div class="main fenghuang" ></div>
+                <div class="main iphonix-in" ></div>
+                <div class="main iphonix-in2" ></div>
+                <div class="center-xy">
+                    <input type="range" value="0" class="pullee" />
+                </div>
+                <div class="main iphonix-
+                in3" ></div>
+                <div class="chazi2" onclick="guaniphonix1()"></div>
+                <div class="main black"></div>
+            </div>
+
+                <!-- 寻访图 --> 
+            <div class="main tag4" onclick=""></div>
+            <div class="main xunfangtu" onclick="tanxunfangtu()"></div>
+            
+
+            <div class="main bg"></div>
+            
+        </div>
+
+
+
+        <div class="map">
+            <div id="renwushu"></div>
+            <div id="yinyangling"></div>
+            <div id="shengmingyin"></div>
+
+            <div id="huode"></div>
+            <div id="wancheng"></div>
+
+            <div   class="icon" id="a1" onclick="a1()"></div>
+                <div class="icon-word" id="a1w"></div>
+            <div class="choice-main" id="choice-main1">
+                <div class="choice" id="choice-a1-play" onclick="a1start()"></div>
+                <div class="choice" id="choice-a1-replay" onclick="a1restart()"></div>
+                <div id="choice-a1-bg"></div>
+            </div>
+
+ 
+
+            <div   class="icon" id="a2" onclick="a2()"></div>
+                <div class="icon-word" id="a2w"></div>
+                <div class="choice-main" id="choice-main2">
+                <div class="choice" id="choice-a2-play" onclick="a2start()"></div>
+                <div class="choice" id="choice-a2-replay" onclick="a2restart()"></div>
+                <div id="choice-a2-bg"></div>
+            </div>
+
+   
+
+            <div   class="icon" id="a3" onclick="a3()"></div>
+                <div class="icon-word" id="a3w"></div>
+                <div class="choice-main" id="choice-main3">
+                <div class="choice" id="choice-a3-play" onclick="a3start()"></div>
+                <div class="choice" id="choice-a3-replay" onclick="a3restart()"></div>
+                <div id="choice-a3-bg"></div>
+            </div>
+           
+
+            <div   class="icon" id="a4" onclick="a4()"></div>
+                <div class="icon-word" id="a4w"></div>
+                <div class="choice-main" id="choice-main4">
+                <div class="choice" id="choice-a4-play" onclick="a4start()"></div>
+                <div class="choice" id="choice-a4-replay" onclick="a4restart()"></div>
+                <div id="choice-a4-bg"></div>
+            </div>
+            
+            <div   class="icon" id="a5" onclick="a5()"></div>
+                <div class="icon-word" id="a5w"></div>
+                <div class="choice-main" id="choice-main5">
+                <div class="choice" id="choice-a5-play" onclick="a5start()"></div>
+                <div class="choice" id="choice-a5-replay" onclick="a5restart()"></div>
+                <div id="choice-a5-bg"></div>
+            </div>
+            
+
+            <div   class="icon" id="a6" onclick="a6()"></div>
+                <div class="icon-word" id="a6w"></div>
+                <div class="choice-main" id="choice-main6">
+                <div class= "choice" id="choice-a6-play" onclick="a6start()"></div>
+                <div class= "choice" id="choice-a6-replay" onclick="a6restart()"></div>
+                <div id="choice-a6-bg"></div>
+            </div>
+           
+
+            <div   class="icon" id="a7" onclick="a7()"></div>
+                <div class="icon-word" id="a7w"></div>
+                <div class="choice-main" id="choice-main7">
+                <div class= "choice" id="choice-a7-play" onclick="a7start()"></div>
+                <div class= "choice" id="choice-a7-replay" onclick="a7restart()"></div>
+                <div id="choice-a7-bg"></div>
+            </div>
+
+           
+            <div   class="icon" id="a8" onclick="a8()"></div>
+                <div class="icon-word" id="a8w"></div>
+                <div class="choice-main" id="choice-main8">
+                <div class= "choice" id="choice-a8-play" onclick="a8start()"></div>
+                <div class= "choice" id="choice-a8-replay" onclick="a8restart()"></div>
+                <div id="choice-a8-bg"></div>
+            </div>
+   
+
+                <div    id="judge1">
+                    <div   id="judge1-sure" onclick="story1go()"></div>
+                    <div   id="judge1-notsure" onclick="closejudge1()"></div>
+                </div>
+
+                <div    id="judge2">
+                    <div   id="judge2-sure" onclick="story2go()"></div>
+                    <div   id="judge2-notsure" onclick="closejudge2()"></div>
+                </div>
+                <div    id="judge3">
+                    <div   id="judge3-sure" onclick="story3go()"></div>
+                    <div   id="judge3-notsure" onclick="closejudge3()"></div>
+                </div>
+                <div    id="judge4">
+                    <div   id="judge4-sure" onclick="story4go()"></div>
+                    <div   id="judge4-notsure" onclick="closejudge4()"></div>
+                </div>
+                <div    id="judge5">
+                    <div   id="judge5-sure" onclick="story5go()"></div>
+                    <div   id="judge5-notsure" onclick="closejudge5()"></div>
+                </div>
+                <div    id="judge6">
+                    <div   id="judge6-sure" onclick="story6go()"></div>
+                    <div   id="judge6-notsure" onclick="closejudge6()"></div>
+                </div>
+                <div    id="judge7">
+                    <div   id="judge7-sure" onclick="story7go()"></div>
+                    <div   id="judge7-notsure" onclick="closejudge7()"></div>
+                </div>
+
+                <div    id="judge8">
+                    <div   id="judge8-sure" onclick="story8go()"></div>
+                    <div   id="judge8-notsure" onclick="closejudge8()"></div>
+                </div>
+      
+            <div class="map bg"></div>
+            <div   class="map back2" onclick="tanback2()"></div>
+            <div   class="map ask2" onclick="tanask2()"></div>
+            <div   class="map musicon" onclick="jingyin()"></div>
+            <div   class="map musicoff" onclick="kaishengyin()"></div>
+        </div>
+
+
+
+        <div class="book">
+            <div class="book bg"></div>
+            <div class="book back3" onclick="tanback3()"></div>
+            <div class="book ask3" onclick="tanask3()"></div>
+            <div class="book musicon" onclick="jingyin()"></div>
+            <div class="book musicoff" onclick="kaishengyin()"></div>
+            <div class="book jin" onclick="jin()"></div> 
+            <div class="book mu" onclick="mu()"></div>   
+            <div class="book shui" onclick="shui()"></div>            
+            <div class="book huo" onclick="huo()"></div>
+            <div class="book tu" onclick="tu()"></div>
+               
+        </div>
+
+        <div id="book-pre">
+            <div class="jin-1"></div>
+            <div class="jinback" onclick="jinback()"></div>
+            <div class="mu-1"></div>
+            <div class="muback" onclick="muback()"></div>
+            <div class="shui-1"></div>
+            <div class="shuiback" onclick="shuiback()"></div>
+            <div class="huo-1"></div>
+            <div class="huoback" onclick="huoback()"></div>
+            <div class="tu-1"></div>
+            <div class="tuback" onclick="tuback()"></div>
+        </div>
+
+        <div id="story1">
+        <div class="nextbtn" id="story1-1-next" onclick="story1next1()"></div>
+        <div class="nextbtn" id="story1-2-next" onclick="story1next2()"></div>
+        <div class="nextbtn" id="story1-3-next" onclick="story1next3()"></div>
+        <div class="nextbtn" id="story1-4-next" onclick="story1next4()"></div>
+        <div class="nextbtn" id="story1-5-next" onclick="story1next5()"></div>
+        <div class="nextbtn" id="story1-6-next" onclick="story1next6()"></div>
+        <div class="nextbtn" id="story1-7-next" onclick="story1next7()"></div>
+        <div class="nextbtn" id="story1-8-next" onclick="story1next8()"></div>
+        <div class="nextbtn" id="story1-9-next" onclick="story1next9()"></div>
+        <div class="nextbtn" id="story1-10-next" onclick="story1next10()"></div>
+        <div class="nextbtn" id="story1-11-next" onclick="story1next11()"></div>
+        <div class="nextbtn" id="story1-12-next" onclick="story1next12()"></div>
+        <div class="nextbtn" id="story1-13-next" onclick="story1next13()"></div>
+        <div class="nextbtn" id="story1-14-next" onclick="story1next14()"></div>
+        <div class="nextbtn" id="story1-15-next" onclick="story1next15()"></div>
+        <div class="nextbtn" id="story1-16-next" onclick="story1next16()"></div>
+        <div class="nextbtn" id="story1-17-next" onclick="story1next17()"></div>
+
+
+        <div id="story1-1"></div>
+        <div id="story1-2"></div>
+        <div id="story1-3"></div>
+        <div id="story1-4"></div>
+        <div id="story1-5"></div>
+        <div id="story1-6"></div>
+        <div id="story1-7"></div>
+        <div id="story1-8"></div>
+        <div id="story1-9"></div>
+        <div id="story1-10"></div>
+        <div id="story1-11"></div>
+        <div id="story1-12"></div>
+        <div id="story1-13"></div>
+        <div id="story1-14"></div>
+        <div id="story1-15"></div>
+        <div id="story1-16"></div>
+        <div id="story1-17"></div>
+  
+        </div>
+
+        <div id="story5">
+
+            <div class="nextbtn" id="story5-1-next" onclick="story5next1()"></div>
+            <div class="nextbtn" id="story5-2-next" onclick="story5next2()"></div>
+            <div class="nextbtn" id="story5-3-next" onclick="story5next3()"></div>
+            <div class="nextbtn" id="story5-4-next" onclick="story5next4()"></div>
+            <div class="nextbtn" id="story5-5-next" onclick="story5next5()"></div>
+           
+            <div class="nextbtn" id="story5-15-next" onclick="story5next15()"></div>
+            <div class="nextbtn" id="story5-16-next" onclick="story5next16()"></div>
+            <div class="nextbtn" id="story5-17-next" onclick="story5next17()"></div>
+            <div class="nextbtn" id="story5-18-next" onclick="story5next18()"></div>
+            <div class="nextbtn" id="story5-19-next" onclick="story5next19()"></div>
+            <div class="nextbtn" id="story5-20-next" onclick="story5next20()"></div>
+        
+            <div id="story5-1"></div>
+            <div id="story5-2"></div>
+            <div id="story5-3"></div>
+            <div id="story5-4"></div>
+
+            <div id="story5-special">
+                <div id="songzhong" onclick="songzhong()"></div>
+                <div id="baosang" onclick="baosang()"></div>
+                <div id="zhaohun" onclick="zhaohun()"></div>
+                <div id="diaoyan" onclick="diaoyan()"></div>
+                <div id="rulian" onclick="rulian()"></div>
+                <div id="qiling" onclick="qiling()"></div>
+                <div id="songsang" onclick="songsang()"> </div>
+                <div id="xiazang" onclick="xiazang()"></div>
+                <div id="zuoqi" onclick="zuoqi()"></div>
+            </div>
+
+            <div id="story5-5"></div>
+            <div id="story5-6"></div>
+            <div id="story5-7"></div>
+            <div id="story5-8"></div>
+            <div id="story5-9"></div>
+            <div id="story5-10"></div>
+            <div id="story5-11"></div>
+            <div id="story5-12"></div>
+            <div id="story5-13"></div>
+            <div id="story5-14"></div>
+            <div id="story5-15"></div>
+            <div id="story5-16"></div>
+            <div id="story5-17"></div>
+            <div id="story5-18"></div>
+            <div id="story5-19"></div> 
+            <div id="story5-20"></div>
+        </div>
+
+        <div class="bbb">
+        </div>
+
+    <script src="./daima.js"></script>
+    </body>
